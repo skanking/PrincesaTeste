@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você me ama?</title>
+    <link rel='stylesheet' type='text/css' media='screen' href="css/style.css">
+    
+</head>
+<body>
+    <h1>Você me ama?</h1>
+    <div id="botoes">
+        <button id="simBotao">SIM</button>
+        <button id="naoBotao">NÃO</button>
+    </div>
+
+    <script>
+        function teleportarBotao() {
+            var buttonNao = document.getElementById("naoBotao");
+            var screenWidth = window.innerWidth - buttonNao.offsetWidth; 
+            var screenHeight = window.innerHeight - buttonNao.offsetHeight; 
+            var newLeft = getRandomPosition(screenWidth);
+            var newTop = getRandomPosition(screenHeight);
+
+            buttonNao.style.left = newLeft + "px";
+            buttonNao.style.top = newTop + "px";
+        }
+
+        function getRandomPosition(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        document.getElementById("naoBotao").addEventListener("click", teleportarBotao);
+        document.getElementById("simBotao").addEventListener("click", function() {
+            window.location.href = "Page2/Site.html"; // Altere "outra_pagina.html" para a URL desejada
+        });
+
+        
+    </script>
+</body>
+</html>
